@@ -16,7 +16,7 @@ export default function Login() {
         seterror("")
         try {
             await logIn(email, password)
-            Navigate("/authorized")
+            Navigate("/LandingUpper")
         } catch (err) {
             seterror(err.message)
         }
@@ -25,13 +25,14 @@ export default function Login() {
     const googleAuth= async()=>{
         try {
             await googleSignIn();
-            Navigate("/authorized")
+            Navigate("/LandingUpper")
         } catch (error) {
             console.log(error.message)
         }
     }
 
   return (
+    <>
     <div>
             <div className="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col mx-auto w-full mt-10">
             <h2 className="text-gray-900 text-lg font-medium title-font mb-5">Log In</h2>
@@ -58,5 +59,6 @@ export default function Login() {
                 <button className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">SignUp</button></Link>
             </div>
     </div>
+    </>
   )
 }
